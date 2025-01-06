@@ -128,9 +128,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 518577740}
-  - component: {fileID: 518577742}
   - component: {fileID: 518577741}
-  - component: {fileID: 518577743}
+  - component: {fileID: 518577744}
+  - component: {fileID: 518577745}
   m_Layer: 0
   m_Name: FirstPersonPlayer
   m_TagString: Untagged
@@ -167,7 +167,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c546d542f448f17489c29ab1fb908d50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controller: {fileID: 518577742}
+  controller: {fileID: 518577744}
   playerspeed: 5
   gravity: -10
   jumpHeight: 3
@@ -177,7 +177,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   isGrounded: 0
---- !u!143 &518577742
+--- !u!143 &518577744
 CharacterController:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -202,7 +202,7 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &518577743
+--- !u!114 &518577745
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -215,10 +215,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactionRange: 4
-  interactableLayer:
+  InteractableLayer:
     serializedVersion: 2
     m_Bits: 128
-  inRange: 0
+  playerCamera: {fileID: 609115795}
 --- !u!1 &609115790 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -1510381904493913627, guid: 0b574ab634b62a14582f23bf2434d052, type: 3}
@@ -238,6 +238,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mouseSensitivity: 100
   playerBody: {fileID: 518577740}
+--- !u!20 &609115795 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: -139076337850678904, guid: 0b574ab634b62a14582f23bf2434d052, type: 3}
+  m_PrefabInstance: {fileID: 1582081900}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &619057012 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 0b574ab634b62a14582f23bf2434d052, type: 3}
@@ -667,7 +672,7 @@ GameObject:
   - component: {fileID: 1117478784}
   - component: {fileID: 1117478783}
   - component: {fileID: 1117478782}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: KurwaSchody
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -795,7 +800,7 @@ MonoBehaviour:
   enemyPrefab: {fileID: 905471504}
   spawnInterval: 5
   maxEnemies: 3
-  spawnEnabled: 1
+  spawnEnabled: 0
 --- !u!4 &1215928292
 Transform:
   m_ObjectHideFlags: 0
