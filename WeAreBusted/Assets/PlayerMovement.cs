@@ -5,7 +5,9 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public CharacterController controller;
-    public float playerspeed = 5f;
+    public float normalSpeed = 5f;
+    public float sprintSpeed = 8f;
+    public float currentSpeed;
     public float gravity = -10f;
     public float jumpHeight = 3f;
 
@@ -36,7 +38,7 @@ public class PlayerMovement : MonoBehaviour
         float z = Input.GetAxis("Vertical");
 
         Vector3 move = transform.right * x + transform.forward * z;
-        controller.Move(move * playerspeed * Time.deltaTime);
+        controller.Move(move * currentSpeed * Time.deltaTime);
 
         velocity.y += gravity * Time.deltaTime;
 
@@ -45,6 +47,14 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+        }
+        if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
+        {
+            currentSpeed = sprintSpeed;
+        }
+        else
+        {
+            currentSpeed = normalSpeed;
         }
     }
 }
