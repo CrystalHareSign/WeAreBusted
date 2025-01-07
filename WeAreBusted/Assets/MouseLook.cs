@@ -4,12 +4,15 @@ public class PlayerLook : MonoBehaviour
 {
     public float mouseSensitivity = 100f;
     public Transform playerBody;
+    public Transform cameraTransform; //
+    public Transform weaponTransform; //
 
     float xRotation = 0f;
 
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
+        cameraTransform = Camera.main.transform; //
     }
 
     void Update()
@@ -22,5 +25,8 @@ public class PlayerLook : MonoBehaviour
 
         transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
         playerBody.Rotate(Vector3.up * mouseX);
+
+        weaponTransform.position = cameraTransform.position;
+        weaponTransform.rotation = cameraTransform.rotation;
     }
 }
