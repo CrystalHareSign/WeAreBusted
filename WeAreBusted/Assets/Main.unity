@@ -147,11 +147,10 @@ Transform:
   m_GameObject: {fileID: 518577739}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.33, y: 1, z: -7.75}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 619057013}
   - {fileID: 1907555252}
   - {fileID: 684091035}
   m_Father: {fileID: 0}
@@ -172,7 +171,6 @@ MonoBehaviour:
   playerspeed: 5
   gravity: -10
   jumpHeight: 3
-  bodyPosition: {fileID: 619057013}
   groundCheck: {fileID: 684091035}
   groundDistance: 0.4
   groundMask:
@@ -912,19 +910,23 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 518577740}
+    m_TransformParent: {fileID: 1907555252}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 0b574ab634b62a14582f23bf2434d052, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 0b574ab634b62a14582f23bf2434d052, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.03
+      value: -0.1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0b574ab634b62a14582f23bf2434d052, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.6
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0b574ab634b62a14582f23bf2434d052, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0b574ab634b62a14582f23bf2434d052, type: 3}
       propertyPath: m_LocalRotation.w
@@ -932,15 +934,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0b574ab634b62a14582f23bf2434d052, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0b574ab634b62a14582f23bf2434d052, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0b574ab634b62a14582f23bf2434d052, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0b574ab634b62a14582f23bf2434d052, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1230,10 +1232,11 @@ Transform:
   m_GameObject: {fileID: 1907555251}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.053, y: 0.59, z: -0.34}
+  m_LocalPosition: {x: 0, y: 0.8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 619057013}
   m_Father: {fileID: 518577740}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1907555253
@@ -1251,7 +1254,6 @@ MonoBehaviour:
   mouseSensitivity: 100
   playerBody: {fileID: 518577740}
   cameraTransform: {fileID: 1907555252}
-  weaponTransform: {fileID: 619057013}
 --- !u!20 &1907555254
 Camera:
   m_ObjectHideFlags: 0
@@ -1285,7 +1287,7 @@ Camera:
     height: 1
   near clip plane: 0.14999999
   far clip plane: 300
-  field of view: 35
+  field of view: 40
   orthographic: 0
   orthographic size: 5
   m_Depth: 0
