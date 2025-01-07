@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public CharacterController controller;
-    public float playerspeed = 12f;
+    public float playerspeed = 5f;
     public float gravity = -10f;
     public float jumpHeight = 3f;
 
@@ -13,13 +13,18 @@ public class PlayerMovement : MonoBehaviour
     public float groundDistance = 0.4f;
     public LayerMask groundMask;
 
-
     Vector3 velocity;
     public bool isGrounded;
+
+    void Start()
+    {
+
+    }
 
     // Update is called once per frame
     void Update()
     {
+
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
         if (isGrounded && velocity.y < 0)
