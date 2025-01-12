@@ -13,21 +13,28 @@ public class AnimationStateController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Basic bools for movement
         bool isWalkingW = animator.GetBool("isWalkingW");
         bool isWalkingS = animator.GetBool("isWalkingS");
         bool isWalkingA = animator.GetBool("isWalkingA");
         bool isWalkingD = animator.GetBool("isWalkingD");
-        bool isWalkingWA = animator.GetBool("isWalkingWA");
 
+        //Running, crouching and jumping bools
         bool isRunning = animator.GetBool("isRunning");
 
+        bool isJumpingIdle = animator.GetBool("isJumpingIdle");
+        bool isJumpingForward = animator.GetBool("isJumpingForward");
+
+        //Key Inputs for movement
         bool forwardPressed = Input.GetKey(KeyCode.W);
         bool backPressed = Input.GetKey(KeyCode.S);
         bool leftPressed = Input.GetKey(KeyCode.A);
         bool rightPressed = Input.GetKey(KeyCode.D);
-        bool forwardLeftPressed = Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.A);
+        bool jumpingPressed = Input.GetKey(KeyCode.Space);
 
+        //Additional bools for movement
         bool runPressed = Input.GetKey(KeyCode.LeftShift);
+
 
         //Walking forward animation
         if (!isWalkingW && (forwardPressed))
@@ -71,21 +78,25 @@ public class AnimationStateController : MonoBehaviour
             animator.SetBool("isWalkingD", false);
         }
 
-        //Walking forward left animation
-        if (!isWalkingWA && forwardLeftPressed)
+        //Jumping from idle
+        if (!isJumpingIdle && jumpingPressed)
         {
-            animator.SetBool("isWalkingWA", true);
+            animator.SetBool("isJumpingIdle", true);
         }
-        if (isWalkingWA && !forwardLeftPressed)
+        else
         {
-            animator.SetBool("isWalkingWA", false); //Stop walking forward left animation
+            animator.SetBool("isJumpingIdle", false);
         }
-        
-        //if (isWalkingW && !isWalkingA)
-        //{
-        //    animator.SetBool("isWalkingWA", false);
-        //}
 
+        //Jumping forward
+        if (isWalkingW && jumpingPressed)
+        {
+            animator.SetBool("isJumpingForward", true);
+        }
+        if (isJumpingForward && !jumpingPressed)
+        {
+            animator.SetBool("isJumpingForward", false);
+        }
         //Walking to Run animation
         if (isWalkingW && runPressed)
         {
